@@ -12,6 +12,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure, useFullscreen } from '@mantine/hooks';
 import { IconArrowsMaximize, IconArrowsMinimize, IconMoon, IconSun } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 import classes from './Header.module.css';
 
 export function Header() {
@@ -23,13 +24,25 @@ export function Header() {
     <Box pb={120}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Group h="100%" gap={0} visibleFrom="sm">
-            <a href="/" className={classes.link}>
+          <Group h="100%" gap={10} visibleFrom="sm">
+            <motion.a
+              href="/"
+              className={classes.link}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.8 }}
+              style={{ x: 100 }}
+            >
               Home
-            </a>
-            <a href="/blog" className={classes.link}>
+            </motion.a>
+            <motion.a
+              href="/blog"
+              className={classes.link}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ x: 100 }}
+            >
               Blog
-            </a>
+            </motion.a>
           </Group>
 
           <Group visibleFrom="sm">
