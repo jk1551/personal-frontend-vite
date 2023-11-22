@@ -1,49 +1,51 @@
-import { Card, Container, SimpleGrid, Text } from '@mantine/core';
-import classes from '../ArticleCard/ArticleCard.module.css';
+import { ActionIcon, Badge, Card, Container, Group, Image, SimpleGrid, Text, rem } from '@mantine/core';
+import { IconShare } from '@tabler/icons-react';
+import { FC } from 'react';
+import { Post } from '../../database/collection';
+import classes from './ArticleCard.module.css';
 
-const mockdata = [
-  {
-    id: 1,
-    title: 'Top 10 places to visit in Norway this summer',
-    image:
-      'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    date: 'August 18, 2022',
-  },
-  {
-    id: 2,
-    title: 'Best forests to visit in North America',
-    image:
-      'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    date: 'August 27, 2022',
-  },
-  {
-    id: 3,
-    title: 'Hawaii beaches review: better than you think',
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    date: 'September 9, 2022',
-  },
-  {
-    id: 4,
-    title: 'Mountains at night: 12 best locations to enjoy the view',
-    image:
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
-    date: 'September 12, 2022',
-  },
-];
+interface ArticleGridProps {
+  posts: Post[] | null;
+}
 
-const cards = mockdata.map((article: any) => (
-  <Card key={article.title} p="md" radius="md" component="a" href={`/posts/${article.id}`} className={classes.card}>
-    <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
-      {article.createdDate}
-    </Text>
-    <Text className={classes.title} mt={5}>
-      {article.title}
-    </Text>
-  </Card>
-));
+export const ArticlesGrid: FC<ArticleGridProps> = ({ posts }) => {
+  console.log(posts);
 
-export const ArticlesGrid = () => {
+  const cards =
+    posts &&
+    posts.map((post) => (
+      <Card withBorder padding="lg" radius="md" className={classes.card}>
+        <Card.Section mb="sm">
+          <Image src={post.url} alt="Top 50 underrated plants for house decoration" height={180} />
+        </Card.Section>
+
+        <Badge w="fit-content" variant="light">
+          decorations
+        </Badge>
+
+        <Text fw={700} className={classes.title} mt="xs">
+          Top 50 underrated plants for house decoration
+        </Text>
+
+        <Group mt="lg">
+          <div>
+            <Text fw={500}>Joe King</Text>
+            <Text fz="xs" c="dimmed">
+              posted 34 minutes ago
+            </Text>
+          </div>
+        </Group>
+
+        <Card.Section className={classes.footer}>
+          <Group justify="right">
+            <ActionIcon variant="subtle" color="gray">
+              <IconShare style={{ width: rem(20), height: rem(20) }} color="blue" stroke={1.5} />
+            </ActionIcon>
+          </Group>
+        </Card.Section>
+      </Card>
+    ));
+
   return (
     <Container py="xl">
       <SimpleGrid cols={{ base: 1, sm: 2 }}>{cards}</SimpleGrid>
