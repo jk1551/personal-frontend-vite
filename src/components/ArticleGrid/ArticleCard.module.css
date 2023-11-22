@@ -1,5 +1,6 @@
 .card {
   transition: transform 150ms ease, box-shadow 150ms ease;
+  max-width: 50%;
 
   &:hover {
     transform: scale(1.01);

@@ -1,5 +1,12 @@
-const Article = () => {
-  return <div>Article</div>;
+import { FC } from 'react';
+import { Post } from '../database/collection';
+
+interface SingleArticleProps {
+  post: Post;
+}
+
+const ArticlePage: FC<SingleArticleProps> = ({ post }) => {
+  return <></>;
 };
 
-export default Article;
+export default ArticlePage;

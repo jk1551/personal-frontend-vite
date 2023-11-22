@@ -1,9 +1,9 @@
-import { Hero } from '../components/Hero/Hero';
+import Terminal from '../components/Terminal/Terminal';
 
 export function HomePage() {
   return (
-    <>
-      <Hero />
-    </>
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', height: '50vh' }}>
+      <Terminal />
+    </div>
   );
 }
