@@ -81,7 +81,7 @@ const Terminal: React.FC = () => {
   const showHelp = () => {
     setOutput([
       ...output,
-      { type: 'output', text: 'Available commands: --help, clear, resume, linkedin, github, about, blog-post --$id' },
+      { type: 'output', text: 'Available commands: --help, clear, resume, linkedin, github, about' },
     ]);
   };
 
