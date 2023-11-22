@@ -1,7 +1,10 @@
 import { Button, Container, Group, Text, Title } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 import classes from './NotFound.module.css';
 
 export function NotFound() {
+  const navigate = useNavigate();
+
   return (
     <Container className={classes.root}>
       <div className={classes.label}>404</div>
@@ -11,7 +14,7 @@ export function NotFound() {
         URL.
       </Text>
       <Group justify="center">
-        <Button variant="subtle" size="md">
+        <Button onClick={() => navigate('/')} variant="subtle" size="md">
           Take me back to home page
         </Button>
       </Group>
