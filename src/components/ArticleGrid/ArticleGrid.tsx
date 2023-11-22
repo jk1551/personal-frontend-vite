@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@mantine/core';
+import { Container, SimpleGrid } from '@mantine/core';
 import { FC } from 'react';
 import { Post } from '../../database/collection';
 import ArticleCard from './ArticleCard';
@@ -10,5 +10,11 @@ interface ArticleGridProps {
 export const ArticlesGrid: FC<ArticleGridProps> = ({ posts }) => {
   const cards = posts && posts.map((post) => <ArticleCard key={post.id} post={post} />);
 
-  return <SimpleGrid cols={{ base: 1, sm: 2 }}>{cards}</SimpleGrid>;
+  console.log(posts);
+
+  return (
+    <Container py="xl" size="xl">
+      <SimpleGrid cols={{ base: 1, sm: 2 }}>{cards}</SimpleGrid>
+    </Container>
+  );
 };
