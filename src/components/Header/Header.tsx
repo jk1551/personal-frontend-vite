@@ -1,15 +1,4 @@
-import {
-  ActionIcon,
-  Box,
-  Burger,
-  Button,
-  Divider,
-  Drawer,
-  Group,
-  ScrollArea,
-  rem,
-  useMantineColorScheme,
-} from '@mantine/core';
+import { ActionIcon, Box, Burger, Divider, Drawer, Group, ScrollArea, rem, useMantineColorScheme } from '@mantine/core';
 import { useDisclosure, useFullscreen } from '@mantine/hooks';
 import { IconArrowsMaximize, IconArrowsMinimize, IconMoon, IconSun } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
@@ -21,32 +10,19 @@ export function Header() {
   const { colorScheme, setColorScheme } = useMantineColorScheme();
 
   return (
-    <Box pb={120}>
+    <Box pb={75}>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Group h="100%" gap={10} visibleFrom="sm">
-            <motion.a
-              href="/"
-              className={classes.link}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.8 }}
-              style={{ x: 100 }}
-            >
+            <motion.a href="/" className={classes.link}>
               Home
             </motion.a>
-            <motion.a
-              href="/blog"
-              className={classes.link}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-              style={{ x: 100 }}
-            >
+            <motion.a href="/blog" className={classes.link}>
               Blog
             </motion.a>
           </Group>
 
           <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
             {fullscreen ? (
               <ActionIcon onClick={toggle} variant="default" color="gray" size="lg" radius="md" aria-label="Minimize">
                 <IconArrowsMinimize style={{ width: '70%', height: '70%' }} stroke={1.5} />
@@ -129,10 +105,6 @@ export function Header() {
           </a>
 
           <Divider my="sm" />
-
-          <Group justify="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-          </Group>
         </ScrollArea>
       </Drawer>
     </Box>
