@@ -1,12 +1,5 @@
-import { FC } from 'react';
-import { Post } from '../database/collection';
-
-interface SingleArticleProps {
-  post: Post;
-}
-
-const ArticlePage: FC<SingleArticleProps> = ({ post }) => {
-  return <></>;
+const ArticlePage = () => {
+  return <>article id here</>;
 };
 
 export default ArticlePage;

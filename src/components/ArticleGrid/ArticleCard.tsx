@@ -1,4 +1,5 @@
 import { AspectRatio, Card, Image, Text } from '@mantine/core';
+import dayjs from 'dayjs';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Post } from '../../database/collection';
@@ -24,7 +25,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ post }) => {
         <Image src={post.url} />
       </AspectRatio>
       <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
-        {post.created_at}
+        {dayjs(post.created_at).toString()}
       </Text>
       <Text className={classes.title} mt={5}>
         {post.title}
