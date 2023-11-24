@@ -17,7 +17,7 @@ export function Header() {
             <motion.a href="/" className={classes.link}>
               Home
             </motion.a>
-            <motion.a href="/blog" className={classes.link}>
+            <motion.a href="/blog?page=1&pageSize=10" className={classes.link}>
               Blog
             </motion.a>
           </Group>
