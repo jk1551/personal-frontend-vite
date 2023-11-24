@@ -1,0 +1,13 @@
+.card {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  min-width: 500px;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: var(--mantine-shadow-md);
+  }
+}
+
+.title {
+  font-weight: bold;
+}

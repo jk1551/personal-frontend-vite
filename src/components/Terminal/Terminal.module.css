@@ -1,0 +1,37 @@
+/* terminal.module.css */
+
+.terminal {
+  width: 70%;
+  height: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.input {
+  color: #00ff00; /* Green text for input */
+}
+
+.output {
+  color: white;
+}
+
+.form {
+  display: flex;
+}
+
+.prompt {
+  margin-right: 5px;
+  color: #00ff00; /* Green prompt symbol */
+}
+
+.input-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: green;
+  outline: none;
+}
+
+/* Add more styles as needed */
