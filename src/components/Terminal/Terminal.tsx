@@ -14,7 +14,7 @@ const Terminal: React.FC = () => {
 
   useEffect(() => {
     const initialMessage =
-      'Welcome to my personal website. My name is Joe King and I am a Fullstack Software engineer at Cynergy Wellness. Type --help for a list of commands';
+      'Welcome to my personal website. My name is Joe King and I am a Fullstack Software engineer at Cynergy Wellness. Type help for a list of commands';
     let rollingTextIndex = 0;
 
     const rollingTextInterval = setInterval(() => {
@@ -62,7 +62,7 @@ const Terminal: React.FC = () => {
 
   const processCommand = (command: string) => {
     const commands: Record<string, () => void> = {
-      '--help': showHelp,
+      help: showHelp,
       clear: clearTerminal,
       resume: downloadResume,
       github: navigateGithub,
@@ -81,7 +81,7 @@ const Terminal: React.FC = () => {
   const showHelp = () => {
     setOutput([
       ...output,
-      { type: 'output', text: 'Available commands: --help, clear, resume, linkedin, github, about' },
+      { type: 'output', text: 'Available commands: help, clear, resume, linkedin, github, about' },
     ]);
   };
 
